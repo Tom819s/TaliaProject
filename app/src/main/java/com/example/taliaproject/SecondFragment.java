@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,7 +30,6 @@ public class SecondFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         textView = view.findViewById(R.id.textview_second);
-
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,20 +38,22 @@ public class SecondFragment extends Fragment {
             }
         });
 
-        view.findViewById(R.id.button_play).setOnClickListener(new View.OnClickListener() {
+        Button buttonPlay = view.findViewById(R.id.button_play);
+        buttonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textView.append("Pressed Button!\n");
-//                mediaPlayer = MediaPlayer.create(context, R.raw.music_file);
-//                mediaPlayer.prepare();
-//                mPlayer.start();
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.laser_sound);
+                mediaPlayer.start();
+                textView.setText("Happy Father's Day!");
             }
         });
 
         view.findViewById(R.id.button_clear).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textView.setText("");
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.test);
+                mediaPlayer.start();
+                textView.setText("I love you Dad!");
 //                mediaPlayer = MediaPlayer.create(context, R.raw.music_file);
 //                mediaPlayer.prepare();
 //                mPlayer.start();
