@@ -42,6 +42,7 @@ public class SecondFragment extends Fragment {
         buttonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(mediaPlayer != null && mediaPlayer.isPlaying()) mediaPlayer.stop();
                 mediaPlayer = MediaPlayer.create(getContext(), R.raw.laser_sound);
                 mediaPlayer.start();
                 textView.setText("Happy Father's Day!");
@@ -51,6 +52,7 @@ public class SecondFragment extends Fragment {
         view.findViewById(R.id.button_clear).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(mediaPlayer != null && mediaPlayer.isPlaying()) mediaPlayer.stop();
                 mediaPlayer = MediaPlayer.create(getContext(), R.raw.test);
                 mediaPlayer.start();
                 textView.setText("I love you Dad!");
